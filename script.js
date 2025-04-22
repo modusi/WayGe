@@ -8,18 +8,6 @@ function getQueryParams() {
     };
 }
 
-// Google Maps-ის ინიციალიზაცია
-function initMap() {
-    window.map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 41.7151, lng: 44.8271 },
-        zoom: 7
-    });
-}
-
-// ლოკაციის ძებნა Google Maps-ზე
-function searchLocation() {
-    var location = document.getElementById('location').value;
-    var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ 'address': location }, function (results, status) {
         if (status === 'OK') {
