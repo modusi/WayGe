@@ -82,31 +82,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Chatbot-ის ფუნქცია
 function sendMessage() {
-    var userInput = document.getElementById("user-input").value; // იღებს ტექსტს input-დან
+    var userInput = document.getElementById("user-input").value; // იღებს მომხმარებლის შეტყობინებას
     var chatBox = document.getElementById("chat-box"); // ჩატის ყუთი
 
-    if (!userInput) return; // თუ არაფერი ჩაწერეთ, არ მოხდება არაფერი
+    if (!userInput) return; // თუ არაფერი ჩაწერილა, არ მოხდება არაფერი
 
     var userMessage = "<p><strong>You:</strong> " + userInput + "</p>"; // მომხმარებლის შეტყობინება
-    chatBox.innerHTML += userMessage; // ჩატში დაიმატება
+    chatBox.innerHTML += userMessage; // ჩატში დამატება
 
     document.getElementById("user-input").value = ""; // გასუფთავება input-ის ველი
 
     // ბოტის პასუხი
     setTimeout(() => {
         var botMessage = "<p><strong>WayGe AI:</strong> " + getBotResponse(userInput) + "</p>";
-        chatBox.innerHTML += botMessage;
-        chatBox.scrollTop = chatBox.scrollHeight; // ჩატში ავტომატურად გადავა ბოლო მესიჯზე
+        chatBox.innerHTML += botMessage; // ბოტის შეტყობინება ჩატში
+        chatBox.scrollTop = chatBox.scrollHeight; // გადაცემა ჩატში ბოლო შეტყობინებაზე
     }, 1000);
 }
 
-// ბოტის პასუხების ფუნქცია
+// ბოტის პასუხები
 function getBotResponse(input) {
     const responses = {
         "where should I go in Tbilisi?": "You should visit Narikala Fortress, Sameba Cathedral, and Rustaveli Avenue!",
         "best places in Georgia?": "Some must-visit places in Georgia include Kazbegi, Svaneti, and Vardzia!",
         "recommend a place to eat in Tbilisi": "Try Barbarestan for traditional Georgian cuisine!"
     };
-    return responses[input.toLowerCase()] || "I'm not sure, but I can recommend checking the map above!"; // Default response
+    return responses[input.toLowerCase()] || "I'm not sure, but I can recommend checking the map above!";
 }
 
