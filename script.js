@@ -102,11 +102,19 @@ function sendMessage() {
 
 // ბოტის პასუხები
 function getBotResponse(input) {
-    const responses = {
-        "where should I go in Tbilisi?": "You should visit Narikala Fortress, Sameba Cathedral, and Rustaveli Avenue!",
-        "best places in Georgia?": "Some must-visit places in Georgia include Kazbegi, Svaneti, and Vardzia!",
-        "recommend a place to eat in Tbilisi": "Try Barbarestan for traditional Georgian cuisine!"
-    };
-    return responses[input.toLowerCase()] || "I'm not sure, but I can recommend checking the map above!";
+    const msg = input.toLowerCase();
+
+    if (msg.includes("tbilisi") && msg.includes("go")) {
+        return "You should visit Narikala Fortress, Sameba Cathedral, and Rustaveli Avenue!";
+    } else if (msg.includes("best") && msg.includes("places")) {
+        return "Some must-visit places in Georgia include Kazbegi, Svaneti, and Vardzia!";
+    } else if (msg.includes("eat") || msg.includes("restaurant")) {
+        return "Try Barbarestan or Keto & Kote for traditional Georgian cuisine!";
+    } else if (msg.includes("hello") || msg.includes("hi")) {
+        return "Hi there! Ask me anything about places in Georgia 🌄";
+    } else {
+        return "I'm not sure, but I can recommend checking the map above or trying something else!";
+    }
 }
+
 
