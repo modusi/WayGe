@@ -89,3 +89,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+    // ფუნქცია query params-ის ამოსაღებად
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            place: params.get("place"),
+            image: params.get("image")
+        };
+    }
+
+    // გვერდის ჩატვირთვისას ჩასვამს სახელს და სურათს
+    window.onload = () => {
+        const { place, image } = getQueryParams();
+        if (place) {
+            document.getElementById("place-name").textContent = place;
+        }
+        if (image) {
+            document.getElementById("place-image").src = image;
+        }
+    };
+
