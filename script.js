@@ -29,13 +29,16 @@ function searchLocation() {
 // სურათებზე კლიკით გადამისამართება დამატებით გვერდზე
 document.querySelectorAll(".place img").forEach(img => {
     img.addEventListener("click", function () {
-        const placeName = this.nextElementSibling.innerText;
+        const placeNameElement = this.nextElementSibling;
+        const placeName = placeNameElement ? placeNameElement.innerText : "Unknown Place"; // fallback
+
         const imageUrl = this.getAttribute("src");
 
         // გადამისამართება სწორ გვერდზე
         location.assign(`booking.html?place=${encodeURIComponent(placeName)}&image=${encodeURIComponent(imageUrl)}`);
     });
 });
+
 
 // მონაცემების გადაადგილება URL პარამეტრებიდან
 document.addEventListener("DOMContentLoaded", function () {
