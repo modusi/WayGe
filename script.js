@@ -117,4 +117,22 @@ function getBotResponse(input) {
     }
 }
 
+// Leaflet რუკის ინიციალიზაცია თბილისზე
+document.addEventListener("DOMContentLoaded", function () {
+  if (document.getElementById("map")) {
+      const map = L.map('map').setView([41.7151, 44.8271], 13); // თბილისი
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker([41.7151, 44.8271])
+          .addTo(map)
+          .bindPopup('Welcome to Tbilisi!')
+          .openPopup();
+  }
+});
+
+
 
