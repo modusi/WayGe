@@ -9,6 +9,10 @@ function getQueryParams() {
 }
 
 
+function searchLocation() {
+    var location = document.getElementById('location').value;
+    var geocoder = new google.maps.Geocoder();
+
     geocoder.geocode({ 'address': location }, function (results, status) {
         if (status === 'OK') {
             window.map.setCenter(results[0].geometry.location);
