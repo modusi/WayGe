@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (image) {
         const imageElement = document.getElementById('place-image');
-        imageElement.src = image;
+        imageElement.src = new URL(image, window.location.origin).href;
         imageElement.alt = place;
 
         // ✅ სურათზე კლიკით დაბრუნება მთავარ გვერდზე
