@@ -53,3 +53,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const allRatings = document.querySelectorAll('.rating');
+  
+    allRatings.forEach(rating => {
+      const stars = rating.querySelectorAll('.star');
+  
+      stars.forEach((star, index) => {
+        // Hover: განათება მარცხნიდან
+        star.addEventListener('mouseenter', () => {
+          clearHover(stars);
+          for (let i = 0; i <= index; i++) {
+            stars[i].classList.add('hover');
+          }
+        });
+  
+        // Mouse leave: hover გაწმენდა
+        rating.addEventListener('mouseleave', () => {
+          clearHover(stars);
+        });
+  
+        // Click: შეფასების დაფიქსირება
+        star.addEventListener('click', () => {
+          const value = parseInt(star.getAttribute('data-value'));
+          stars.forEach(s => s.classList.remove('selected'));
+          for (let i = 0; i < value; i++) {
+            stars[i].classList.add('selected');
+          }
+          const placeName = rating.getAttribute('data-place');
+          console.log(`Rated ${placeName} with ${value} stars`);
+        });
+      });
+  
+      function clearHover(stars) {
+        stars.forEach(s => s.classList.remove('hover'));
+      }
+    });
+  });
+
