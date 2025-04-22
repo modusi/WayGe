@@ -1,35 +1,11 @@
 
-   // ფუნქცია, რომელიც URL-იდან პარამეტრებს მოაქვს
-   function getQueryParam(param) {
+  // ფუნქცია, რომელიც URL-იდან პარამეტრებს მოაქვს
+function getQueryParams() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Chatbot-ის ფუნქცია
-function sendMessage() {
-    var userInput = document.getElementById("user-input").value;
-    var chatBox = document.getElementById("chat-box");
-    if (!userInput) return;
-
-    var userMessage = "<p><strong>You:</strong> " + userInput + "</p>";
-    chatBox.innerHTML += userMessage;
-    document.getElementById("user-input").value = "";
-
-    setTimeout(() => {
-        var botMessage = "<p><strong>WayGe AI:</strong> " + getBotResponse(userInput) + "</p>";
-        chatBox.innerHTML += botMessage;
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }, 1000);
-}
-
-// ჩატის პასუხები
-function getBotResponse(input) {
-    const responses = {
-        "where should I go in Tbilisi?": "You should visit Narikala Fortress, Sameba Cathedral, and Rustaveli Avenue!",
-        "best places in Georgia?": "Some must-visit places in Georgia include Kazbegi, Svaneti, and Vardzia!",
-        "recommend a place to eat in Tbilisi": "Try Barbarestan for traditional Georgian cuisine!"
+    return {
+        place: urlParams.get("place"),
+        image: urlParams.get("image")
     };
-    return responses[input.toLowerCase()] || "I'm not sure, but I can recommend checking the map above!";
 }
 
 // Google Maps-ის ინიციალიზაცია
@@ -71,16 +47,15 @@ document.querySelectorAll(".place img").forEach(img => {
 
 // მონაცემების გადაადგილება URL პარამეტრებიდან
 document.addEventListener("DOMContentLoaded", function () {
-    const placeName = getQueryParam('place');
-    const placeImage = getQueryParam('image');
+    const { place, image } = getQueryParams();
 
-    if (placeName) {
-        document.getElementById('place-name').innerText = placeName;
+    if (place) {
+        document.getElementById('place-name').innerText = place;
     }
-    if (placeImage) {
+    if (image) {
         const imageElement = document.getElementById('place-image');
-        imageElement.src = placeImage;
-        imageElement.alt = placeName;
+        imageElement.src = image;
+        imageElement.alt = place;
 
         // ✅ სურათზე კლიკით დაბრუნება მთავარ გვერდზე
         imageElement.style.cursor = "pointer";
@@ -89,25 +64,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-
-    // ფუნქცია query params-ის ამოსაღებად
-    function getQueryParams() {
-        const params = new URLSearchParams(window.location.search);
-        return {
-            place: params.get("place"),
-            image: params.get("image")
-        };
-    }
-
-    // გვერდის ჩატვირთვისას ჩასვამს სახელს და სურათს
-    window.onload = () => {
-        const { place, image } = getQueryParams();
-        if (place) {
-            document.getElementById("place-name").textContent = place;
-        }
-        if (image) {
-            document.getElementById("place-image").src = image;
-        }
-    };
 
