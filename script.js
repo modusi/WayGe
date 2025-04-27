@@ -133,35 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
           .openPopup();
   }
 });
-// ვიდეოებზე
-document.addEventListener("DOMContentLoaded", function () {
-  const { place } = getQueryParams();
-
-  // ვიდეო ელემენტები
-  const video1 = document.getElementById('video-1');
-  const video2 = document.getElementById('video-2');
-  const video3 = document.getElementById('video-3');
-  const video4 = document.getElementById('video-4');
-  const video5 = document.getElementById('video-5');
-
-  // ვიდეოს გამოსაჩენად
-  if (place) {
-      if (place.includes("Tbilisi - Sameba Cathedral")) {
-          video1.style.display = "block"; // video-1
-      } else if (place.includes("Kazbegi - Gergeti Trinity Church")) {
-          video2.style.display = "block"; // video-2
-      } else if (place.includes("Mtskheta - Jvari Monastery")) {
-          video3.style.display = "block"; // video-3
-      } else if (place.includes("Svaneti - Ushguli")) {
-          video4.style.display = "block"; // video-4
-      } else if (place.includes("Javakheti - Vardzia")) {
-          video5.style.display = "block"; // video-5
-      } else {
-          // ზოგადი fallback
-          video1.style.display = "block"; // video-1
-      }
-  }
-});
 
 
 
