@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour Booking</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
 
     <header id="place-name">Tour Booking</header>
 
     <div class="booking-container">
-        <img id="place-image" class="tour-image" alt="Tour Location">
+        <video id="video-1" class="tour-video" controls autoplay muted loop style="display: none;">
+            <source src="./video/unknown_2025.04.27-21.53_clip_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video id="video-2" class="tour-video" controls autoplay muted loop style="display: none;">
+            <source src="./video/unknown_2025.04.27-20.56_clip_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video id="video-3" class="tour-video" controls autoplay muted loop style="display: none;">
+            <source src="./video/unknown_2025.04.27-21.46.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video id="video-4" class="tour-video" controls autoplay muted loop style="display: none;">
+            <source src="./video/unknown_2025.04.27-21.51.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <video id="video-5" class="tour-video" controls autoplay muted loop style="display: none;">
+            <source src="./video/unknown_2025.04.27-21.22_clip_1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
 
         <div class="booking-form">
             <h2>Book a Guided Tour</h2>
@@ -38,10 +64,10 @@
         </div>
     </div>
 
-    <!-- <button onclick="goHome()" class="back-home">Back to Home</button> -->
     <button onclick="window.location.href = 'index.html';" class="back-home">Back to Home</button>
-    
-    <script src="./script.js"></script>
+
+    <script src="/script.js"></script>
 
 </body>
+
 </html>
