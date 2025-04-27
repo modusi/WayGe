@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -178,15 +179,15 @@ button:hover {
     margin: 30px auto;
 }
 
-.tour-image {
-    width: 45%;
-    max-width: 400px;
+.tour-video {
+    width: 50%;
+    height: 300px;
     border-radius: 10px;
+     object-fit: cover;   /*დამატებით რომ ვიდეო კარგად შეივსოს ჩარჩოში */
 }
 
 .booking-form {
     width: 50%;
-    max-width: 400px;
 }
 
 form {
@@ -219,3 +220,5 @@ label {
 .back-home:hover {
     background: #0056b3;
 }
+
+
